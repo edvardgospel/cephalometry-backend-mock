@@ -25,7 +25,9 @@ public class CephalometryController {
     @PostMapping("/cephalometry")
     public ResponseEntity<CephalometryResponse> postCephalometry(@RequestBody CephalometryRequest cephalometryRequest) {
         log.info("---postCephalometries() called with {}---", cephalometryRequest);
-        return ResponseEntity.ok(cephalometryService.postCephalometries());
+        CephalometryResponse response = cephalometryService.postCephalometries(cephalometryRequest);
+        log.info("Response: {}", response);
+        return ResponseEntity.ok(response);
     }
 
 }

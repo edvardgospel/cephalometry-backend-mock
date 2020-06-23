@@ -1,5 +1,6 @@
 package com.ortho.cephalometry.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,6 +13,7 @@ public class PersonalData {
     private String phone;
     private String doctor;
     private String birthDate;
+    @JsonProperty("xRayDate")
     private String xRayDate;
-    private String remark;
+    private String remarks;
 }
