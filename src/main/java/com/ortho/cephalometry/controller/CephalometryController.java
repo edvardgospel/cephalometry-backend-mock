@@ -16,6 +16,11 @@ public class CephalometryController {
 
     private final CephalometryService cephalometryService;
 
+    @RequestMapping("/")
+    public String home() {
+        return "Hello World!";
+    }
+
     @RequestMapping(value = "/cephalometry", method = RequestMethod.GET)
     public ResponseEntity<CephalometriesResponse> getCephalometries() {
         log.info("---getCephalometries() called---");
