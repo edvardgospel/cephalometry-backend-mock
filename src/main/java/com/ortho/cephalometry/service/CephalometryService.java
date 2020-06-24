@@ -49,7 +49,7 @@ public class CephalometryService {
                                                 .doctor("Dr. Csibi Reka")
                                                 .birthDate("1995-02-12")
                                                 .xRayDate("2020-06-19")
-                                                .remark("Missing, rotations, etc")
+                                                .remarks("Missing, rotations, etc")
                                                 .build())
                                         .cephalometricAngles(cephalometricAngles).build(),
                                 CephalometryResponse.builder()
@@ -61,7 +61,7 @@ public class CephalometryService {
                                                 .doctor("Dr. Csibi Reka")
                                                 .birthDate("1990-02-12")
                                                 .xRayDate("2020-06-19")
-                                                .remark("Rotations")
+                                                .remarks("Rotations")
                                                 .build())
                                         .cephalometricAngles(cephalometricAngles).build(),
                                 CephalometryResponse.builder()
@@ -79,17 +79,17 @@ public class CephalometryService {
                 ).build();
     }
 
-    public CephalometryResponse postCephalometries() {
+    public CephalometryResponse postCephalometries(CephalometryRequest cephalometryRequest) {
         return CephalometryResponse.builder()
                 .personalData(PersonalData.builder()
-                        .name("Eros Edvard")
-                        .address("Satu Mare, Marsilia 20")
-                        .gender(Gender.MALE)
-                        .phone("+36 30 162 1442")
-                        .doctor("Dr. Csibi Reka")
-                        .birthDate("1995-02-12")
-                        .xRayDate("2020-06-19")
-                        .remark("Missing, rotations, etc")
+                        .name(cephalometryRequest.getPersonalData().getName())
+                        .address(cephalometryRequest.getPersonalData().getAddress())
+                        .gender(cephalometryRequest.getPersonalData().getGender())
+                        .phone(cephalometryRequest.getPersonalData().getPhone())
+                        .doctor(cephalometryRequest.getPersonalData().getDoctor())
+                        .birthDate(cephalometryRequest.getPersonalData().getBirthDate())
+                        .xRayDate(cephalometryRequest.getPersonalData().getXRayDate())
+                        .remarks(cephalometryRequest.getPersonalData().getRemarks())
                         .build())
                 .cephalometricAngles(cephalometricAngles)
                 .build();
